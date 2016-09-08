@@ -71,7 +71,7 @@ class ZephyrApp(zephyr.breeze.Application):
         return template_loader
 
     def boot_database(self):
-        db.setup(self.config.get('db'))
+        db.setup(self.config.get('db'), adapter='pymysql')
         pedis.setup(**self.config.get('redis'))
 
 
